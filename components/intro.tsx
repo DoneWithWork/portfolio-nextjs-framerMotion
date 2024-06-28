@@ -2,9 +2,16 @@
 import Image from "next/image";
 import React from "react";
 import { motion } from "framer-motion";
+import Link from "next/link";
+import { BsArrowRight, BsLinkedin } from "react-icons/bs";
+import { HiDownload } from "react-icons/hi";
+import { FaGithubSquare } from "react-icons/fa";
 export default function Intro() {
   return (
-    <section className="mb-28 max-w-[50rem] text-center sm:mb-0">
+    <section
+      className="mb-28 max-w-[50rem] text-center scroll-mt-[100rem] sm:mb-0"
+      id="home"
+    >
       <div className="flex items-center justify-center">
         <div className="relative">
           <motion.div
@@ -54,6 +61,52 @@ export default function Intro() {
         building <span className="italic">sites & apps</span>. My focus is{" "}
         <span className="underline">React (Next.js)</span>.
       </motion.h1>
+      <motion.div
+        className="flex flex-col sm:flex-row items-center justify-center gap-2 px-4 text-lg font-medium"
+        initial={{ opacity: 0, y: 100 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{
+          delay: 0.1,
+        }}
+      >
+        <Link
+          href={"#contact"}
+          className="bg-gray-900 flex items-center gap-2 text-white px-7 py-3 rounded-full outline-none focus:scale-110 hover:scale-110 hover:bg-gray-950 active:scale-105
+          transition group"
+        >
+          Contact Me Here{" "}
+          <BsArrowRight className="opacity-70 group-hover:translate-x-1 transition" />
+        </Link>
+
+        <a
+          href="/CV.pdf"
+          download={true}
+          className="bg-white flex items-center gap-2 text-black px-7 py-3 rounded-full  outline-none focus:scale-110 hover:scale-110 hover:bg-gray-50 active:scale-105
+          transition group cursor-pointer border border-black/10"
+        >
+          Download CV{" "}
+          <HiDownload className="group-hover:translate-y-1 transition opacity-60" />
+        </a>
+
+        <a
+          href="https://linkedin.com/in/DoneWithWork"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="bg-white flex items-center gap-2 text-gray-700 p-4 rounded-full focus:scale-110 hover:scale-110 hover:bg-gray-50 active:scale-105
+          transition group cursor-pointer border border-black/10"
+        >
+          <BsLinkedin />
+        </a>
+        <a
+          href="https://github.com/DoneWithWork"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="bg-white flex items-center gap-2 text-gray-700 p-4 rounded-full text-[1.35rem] focus:scale-110 hover:scale-110 hover:bg-gray-50 active:scale-105
+          transition group cursor-pointer border border-black/10"
+        >
+          <FaGithubSquare />
+        </a>
+      </motion.div>
     </section>
   );
 }
